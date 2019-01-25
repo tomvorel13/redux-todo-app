@@ -16,13 +16,16 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
-      return [
-        ...state.todos,
-        {
-          title: action.title,
-          text: action.text
-        }
-      ];
+      return {
+        ...state,
+        todos: [
+          ...state.todos,
+          {
+            title: action.title,
+            text: action.text
+          }
+        ]
+      };
     default:
       return state;
   }
