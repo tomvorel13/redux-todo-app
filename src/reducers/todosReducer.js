@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO } from "../constants";
+import { ADD_TODO, REMOVE_TODO, CLEAR_TODOS } from "../constants";
 
 const initialState = {
   todos: [
@@ -30,6 +30,11 @@ export default function(state = initialState, action) {
         ]
       };
     case REMOVE_TODO:
+      return {
+        ...state,
+        todos: action.payload
+      };
+    case CLEAR_TODOS:
       return {
         ...state,
         todos: action.payload
