@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Todo from "./Todo";
+
 class Todos extends Component {
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
@@ -13,11 +15,8 @@ class Todos extends Component {
     const { todos } = this.props;
     return (
       <div>
-        {(todos || []).map((todo, index) => (
-          <div key={index}>
-            <h3>{todo.title}</h3>
-            <p>{todo.text}</p>
-          </div>
+        {todos.map(todo => (
+          <Todo key={todo.id} todo={todo} />
         ))}
       </div>
     );

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import uuid from "uuid";
 import { addTodo } from "../actions/todosActions";
 
 class Form extends Component {
   state = {
+    id: uuid(),
     title: "",
     text: ""
   };
@@ -18,11 +20,17 @@ class Form extends Component {
     e.preventDefault();
     const { title, text } = this.state;
     const newTodo = {
+      id: uuid(),
       title,
       text
     };
 
     this.props.addTodo(newTodo);
+    this.setState({
+      id: "",
+      title: "",
+      text: ""
+    });
   };
 
   render() {

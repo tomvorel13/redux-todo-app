@@ -1,4 +1,4 @@
-import { ADD_TODO, FETCH_TODOS } from "../constants";
+import { ADD_TODO, FETCH_TODOS, REMOVE_TODO } from "../constants";
 
 export const getTodos = () => dispatch => {
   dispatch({
@@ -9,7 +9,13 @@ export const getTodos = () => dispatch => {
 export const addTodo = todo => dispatch => {
   dispatch({
     type: ADD_TODO,
-    title: todo.title,
-    text: todo.text
+    payload: todo
+  });
+};
+
+export const removeTodo = newTodos => dispatch => {
+  dispatch({
+    type: REMOVE_TODO,
+    payload: newTodos
   });
 };
